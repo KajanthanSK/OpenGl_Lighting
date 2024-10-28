@@ -20,52 +20,99 @@ void userInput(GLFWwindow* window);
 void mouseCursorPosition(GLFWwindow* window, double xPos, double yPos);
 void mouseScrollPosition(GLFWwindow* window, double xOffset, double yOffset);
 
+//float vertices[] =
+//{
+//	/* Top Position */		/* Color */			/* TexCoords */		/* Normals */
+//	-0.5f,-0.5f, 0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 0.0f, 1.0f,
+//	 0.5f,-0.5f, 0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,		0.0f, 0.0f, 1.0f,
+//	 0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f, 0.0f, 1.0f,
+//	 0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f, 0.0f, 1.0f,
+//	-0.5f, 0.5f, 0.5f,		1.0f, 1.0f, 0.0f,		0.0f, 1.0f,		0.0f, 0.0f, 1.0f,
+//	-0.5f,-0.5f, 0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 0.0f, 1.0f,
+//	/* Bottom Position */	/* Color */			/* TexCoords */		/* Normals */
+//	-0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 0.0f,-1.0f,
+//	 0.5f,-0.5f,-0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,		0.0f, 0.0f,-1.0f,
+//	 0.5f, 0.5f,-0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f, 0.0f,-1.0f,
+//	 0.5f, 0.5f,-0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f, 0.0f,-1.0f,
+//	-0.5f, 0.5f,-0.5f,		1.0f, 1.0f, 0.0f,		0.0f, 1.0f,		0.0f, 0.0f,-1.0f,
+//	-0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 0.0f,-1.0f,
+//	/* Left Position */		/* Color */			/* TexCoords */	    /* Normals */
+//	-0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		-1.0f, 0.0f, 0.0f,
+//	-0.5f, 0.5f,-0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,		-1.0f, 0.0f, 0.0f,
+//	-0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		-1.0f, 0.0f, 0.0f,
+//	-0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		-1.0f, 0.0f, 0.0f,
+//	-0.5f,-0.5f, 0.5f,		1.0f, 1.0f, 0.0f,		0.0f, 1.0f,		-1.0f, 0.0f, 0.0f,
+//	-0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		-1.0f, 0.0f, 0.0f,
+//	/* Right Position */	/* Color */			/* TexCoords */		/* Normals */
+//	 0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		1.0f, 0.0f, 0.0f,
+//	 0.5f, 0.5f,-0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,		1.0f, 0.0f, 0.0f,
+//	 0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		1.0f, 0.0f, 0.0f,
+//	 0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		1.0f, 0.0f, 0.0f,
+//	 0.5f,-0.5f, 0.5f,		1.0f, 1.0f, 0.0f,		0.0f, 1.0f,		1.0f, 0.0f, 0.0f,
+//	 0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		1.0f, 0.0f, 0.0f,
+//	 /* Back Position */	/* Color */			/* TexCoords */		/* Normals */
+//	-0.5f, 0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 1.0f, 0.0f,
+//	 0.5f, 0.5f,-0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,		0.0f, 1.0f, 0.0f,
+//	 0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f, 1.0f, 0.0f,
+//	 0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f, 1.0f, 0.0f,
+//	-0.5f, 0.5f, 0.5f,		1.0f, 1.0f, 0.0f,		0.0f, 1.0f,		0.0f, 1.0f, 0.0f,
+//	-0.5f, 0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f, 		0.0f, 1.0f, 0.0f,
+//	/* Front Position */	/* Color */			/* TexCoords */		/* Normals */
+//	-0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f,-1.0f, 0.0f,
+//	 0.5f,-0.5f,-0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,		0.0f,-1.0f, 0.0f,
+//	 0.5f,-0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f,-1.0f, 0.0f,
+//	 0.5f,-0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f,-1.0f, 0.0f,
+//	-0.5f,-0.5f, 0.5f,		1.0f, 1.0f, 0.0f,		0.0f, 1.0f,		0.0f,-1.0f, 0.0f,
+//	-0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f,-1.0f, 0.0f,
+//
+//};
 float vertices[] =
 {
-	/* Top Position */		/* Color */			/* TexCoords */		/* Normals */
-	-0.5f,-0.5f, 0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 0.0f, 1.0f,
-	 0.5f,-0.5f, 0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,		0.0f, 0.0f, 1.0f,
-	 0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f, 0.0f, 1.0f,
-	 0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f, 0.0f, 1.0f,
-	-0.5f, 0.5f, 0.5f,		1.0f, 1.0f, 0.0f,		0.0f, 1.0f,		0.0f, 0.0f, 1.0f,
-	-0.5f,-0.5f, 0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 0.0f, 1.0f,
-	/* Bottom Position */	/* Color */			/* TexCoords */		/* Normals */
-	-0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 0.0f,-1.0f,
-	 0.5f,-0.5f,-0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,		0.0f, 0.0f,-1.0f,
-	 0.5f, 0.5f,-0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f, 0.0f,-1.0f,
-	 0.5f, 0.5f,-0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f, 0.0f,-1.0f,
-	-0.5f, 0.5f,-0.5f,		1.0f, 1.0f, 0.0f,		0.0f, 1.0f,		0.0f, 0.0f,-1.0f,
-	-0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 0.0f,-1.0f,
-	/* Left Position */		/* Color */			/* TexCoords */	    /* Normals */
-	-0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		-1.0f, 0.0f, 0.0f,
-	-0.5f, 0.5f,-0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,		-1.0f, 0.0f, 0.0f,
-	-0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		-1.0f, 0.0f, 0.0f,
-	-0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		-1.0f, 0.0f, 0.0f,
-	-0.5f,-0.5f, 0.5f,		1.0f, 1.0f, 0.0f,		0.0f, 1.0f,		-1.0f, 0.0f, 0.0f,
-	-0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		-1.0f, 0.0f, 0.0f,
-	/* Right Position */	/* Color */			/* TexCoords */		/* Normals */
-	 0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		1.0f, 0.0f, 0.0f,
-	 0.5f, 0.5f,-0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,		1.0f, 0.0f, 0.0f,
-	 0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		1.0f, 0.0f, 0.0f,
-	 0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		1.0f, 0.0f, 0.0f,
-	 0.5f,-0.5f, 0.5f,		1.0f, 1.0f, 0.0f,		0.0f, 1.0f,		1.0f, 0.0f, 0.0f,
-	 0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		1.0f, 0.0f, 0.0f,
-	 /* Back Position */	/* Color */			/* TexCoords */		/* Normals */
-	-0.5f, 0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f, 1.0f, 0.0f,
-	 0.5f, 0.5f,-0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,		0.0f, 1.0f, 0.0f,
-	 0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f, 1.0f, 0.0f,
-	 0.5f, 0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f, 1.0f, 0.0f,
-	-0.5f, 0.5f, 0.5f,		1.0f, 1.0f, 0.0f,		0.0f, 1.0f,		0.0f, 1.0f, 0.0f,
-	-0.5f, 0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f, 		0.0f, 1.0f, 0.0f,
-	/* Front Position */	/* Color */			/* TexCoords */		/* Normals */
-	-0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f,-1.0f, 0.0f,
-	 0.5f,-0.5f,-0.5f,		0.0f, 1.0f, 0.0f,		1.0f, 0.0f,		0.0f,-1.0f, 0.0f,
-	 0.5f,-0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f,-1.0f, 0.0f,
-	 0.5f,-0.5f, 0.5f,		0.0f, 0.0f, 1.0f,		1.0f, 1.0f,		0.0f,-1.0f, 0.0f,
-	-0.5f,-0.5f, 0.5f,		1.0f, 1.0f, 0.0f,		0.0f, 1.0f,		0.0f,-1.0f, 0.0f,
-	-0.5f,-0.5f,-0.5f,		1.0f, 0.0f, 0.0f,		0.0f, 0.0f,		0.0f,-1.0f, 0.0f,
+	/* Top Position */				/* Normals */
+	-0.5f,-0.5f, 0.5f,				0.0f, 0.0f, 1.0f,
+	 0.5f,-0.5f, 0.5f,				0.0f, 0.0f, 1.0f,
+	 0.5f, 0.5f, 0.5f,				0.0f, 0.0f, 1.0f,
+	 0.5f, 0.5f, 0.5f,				0.0f, 0.0f, 1.0f,
+	-0.5f, 0.5f, 0.5f,				0.0f, 0.0f, 1.0f,
+	-0.5f,-0.5f, 0.5f,				0.0f, 0.0f, 1.0f,
+	/* Bottom Position */			/* Normals */
+	-0.5f,-0.5f,-0.5f,				0.0f, 0.0f,-1.0f,
+	 0.5f,-0.5f,-0.5f,				0.0f, 0.0f,-1.0f,
+	 0.5f, 0.5f,-0.5f,				0.0f, 0.0f,-1.0f,
+	 0.5f, 0.5f,-0.5f,				0.0f, 0.0f,-1.0f,
+	-0.5f, 0.5f,-0.5f,				0.0f, 0.0f,-1.0f,
+	-0.5f,-0.5f,-0.5f,				0.0f, 0.0f,-1.0f,
+	/* Left Position */			    /* Normals */
+	-0.5f,-0.5f,-0.5f,				-1.0f, 0.0f, 0.0f,
+	-0.5f, 0.5f,-0.5f,				-1.0f, 0.0f, 0.0f,
+	-0.5f, 0.5f, 0.5f,				-1.0f, 0.0f, 0.0f,
+	-0.5f, 0.5f, 0.5f,				-1.0f, 0.0f, 0.0f,
+	-0.5f,-0.5f, 0.5f,				-1.0f, 0.0f, 0.0f,
+	-0.5f,-0.5f,-0.5f,				-1.0f, 0.0f, 0.0f,
+	/* Right Position */			/* Normals */
+	 0.5f,-0.5f,-0.5f,				1.0f, 0.0f, 0.0f,
+	 0.5f, 0.5f,-0.5f,				1.0f, 0.0f, 0.0f,
+	 0.5f, 0.5f, 0.5f,				1.0f, 0.0f, 0.0f,
+	 0.5f, 0.5f, 0.5f,				1.0f, 0.0f, 0.0f,
+	 0.5f,-0.5f, 0.5f,				1.0f, 0.0f, 0.0f,
+	 0.5f,-0.5f,-0.5f,				1.0f, 0.0f, 0.0f,
+	 /* Back Position */			/* Normals */
+	-0.5f, 0.5f,-0.5f,				0.0f, 1.0f, 0.0f,
+	 0.5f, 0.5f,-0.5f,				0.0f, 1.0f, 0.0f,
+	 0.5f, 0.5f, 0.5f,				0.0f, 1.0f, 0.0f,
+	 0.5f, 0.5f, 0.5f,				0.0f, 1.0f, 0.0f,
+	-0.5f, 0.5f, 0.5f,				0.0f, 1.0f, 0.0f,
+	-0.5f, 0.5f,-0.5f,		 		0.0f, 1.0f, 0.0f,
+	/* Front Position */			/* Normals */
+	-0.5f,-0.5f,-0.5f,				0.0f,-1.0f, 0.0f,
+	 0.5f,-0.5f,-0.5f,				0.0f,-1.0f, 0.0f,
+	 0.5f,-0.5f, 0.5f,				0.0f,-1.0f, 0.0f,
+	 0.5f,-0.5f, 0.5f,				0.0f,-1.0f, 0.0f,
+	-0.5f,-0.5f, 0.5f,				0.0f,-1.0f, 0.0f,
+	-0.5f,-0.5f,-0.5f,				0.0f,-1.0f, 0.0f,
 
 };
+
 
 glm::mat4 model;
 glm::mat4 view;
@@ -122,10 +169,10 @@ int main()
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), &vertices, GL_STATIC_DRAW);
 	/* Position Attribute */
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 	/* Color Attribute*/
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)(3 * sizeof(float)));
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
 	glEnableVertexAttribArray(1);
 
 
@@ -137,7 +184,7 @@ int main()
 	glBindBuffer(GL_ARRAY_BUFFER, lightCubeVBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), &vertices, GL_STATIC_DRAW);
 	/* Light Position Attribute */
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 11 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
 
 	Shader shader("Resource/Shader/VertexShader.glsl", "Resource/Shader/FragmentShader.glsl");
@@ -165,6 +212,8 @@ int main()
 
 		shader.setVec3("objectColor", 1.0f, 0.5f, 0.31f);
 		shader.setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+		shader.setVec3("lightPos", lightPos);
+		shader.setVec3("viewPos", camera.Position);
 
 		projection = glm::perspective(glm::radians(camera.Zoom), float(SCREENWIDTH) / float(SCREENHEIGHT), 0.1f, 100.0f);
 		shader.setMat4("projection", projection);
